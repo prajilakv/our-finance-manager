@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Payment options{% endblock %}
+
+{% block content %}
+  <h2>Payment options</h2>
+  <table>
+    <tr><th>Method</th><th>Name</th><th>Status</th><th>Date created</th></tr>
+    {% for option in all_payment_options %}
+        <tr>
+            <td>{{ option.get_method_display }}</td>
+            <td>{{ option.name }}</td>
+            <td>{{ option.get_status_display }}</td>
+            <td>{{ option.date }}</td>
+            <td><a href="{% url 'edit-payment' option.pk %}">EDIT</a></td>
+            <td><a href="{% url 'edit-payment' option.pk %}">DELETE</a></td>
+        </tr>
+    {% endfor %}
+  </table>
+
+{% endblock %}
+

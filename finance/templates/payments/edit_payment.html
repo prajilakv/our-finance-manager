@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Payment options{% endblock %}
+
+{% block content %}
+  <h2>Edit Payment options</h2>
+  <form method="post" action=".">
+    {% csrf_token %}
+    {{ edit_payment_form.as_p }}
+    <button type="submit">UPDATE</button>
+  </form>
+{% endblock %}

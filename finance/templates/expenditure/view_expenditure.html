@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}All Expenditure{% endblock %}
+
+{% block content %}
+  <h2>EXPENDITURE STATEMENT</h2>
+  <table>
+    <tr><th>Expense</th><th>Date</th><th>Name</th><th>Amount</th></tr>
+    {% for option in all_expense_item %}
+        <tr>
+            <td>{{ option.expense }}</td>
+            <td>{{ option.date }}</td>
+            <td>{{ option.name }}</td>
+            <td>{{ option.amount }}</td>
+            <td>{{ option.payment }}</td>
+            <td><a href="{% url 'edit-expense' option.pk %}">EDIT</a></td>
+            <td><a href="{% url 'edit-expense' option.pk %}">DELETE</a></td>
+        </tr>
+    {% endfor %}
+  </table>
+
+{% endblock %}
+

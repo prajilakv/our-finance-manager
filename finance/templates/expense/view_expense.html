@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}View Expense{% endblock %}
+
+{% block content %}
+  <h2>ALL EXPENSES</h2>
+  <table>
+    <tr><th>Type</th><th>Category</th><th>Subcategory</th><th>Created date</th></tr>
+    {% for option in all_expense %}
+        <tr>
+            <td>{{ option.type }}</td>
+            <td>{{ option.category }}</td>
+            <td>{{ option.subcategory }}</td>
+            <td>{{ option.created_date }}</td>
+            <td><a href="{% url 'edit-expense' option.pk %}">EDIT</a></td>
+            <td><a href="{% url 'edit-expense' option.pk %}">DELETE</a></td>
+        </tr>
+    {% endfor %}
+  </table>
+
+{% endblock %}
+
